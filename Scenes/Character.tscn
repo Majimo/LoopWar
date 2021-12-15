@@ -27,3 +27,11 @@ centered = true
 num_sides = 8
 size = 32.0
 polygon_color = Color( 0, 0.368627, 1, 1 )
+
+[node name="Camera2D" type="Camera2D" parent="CharacterPath/CharacterFollow/RegularPolygon2D"]
+current = true
+zoom = Vector2( 1.5, 1.5 )
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+editor_draw_drag_margin = true
