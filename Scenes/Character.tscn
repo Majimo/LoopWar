@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Character.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/CharacterFollow.gd" type="Script" id=2]
@@ -8,6 +8,9 @@
 _data = {
 "points": PoolVector2Array(  )
 }
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 16.0
 
 [node name="Character" type="Node2D"]
 script = ExtResource( 1 )
@@ -21,7 +24,7 @@ curve = SubResource( 1 )
 rotate = false
 script = ExtResource( 2 )
 
-[node name="RegularPolygon2D" type="Node2D" parent="CharacterPath/CharacterFollow"]
+[node name="RegularPolygon2D" type="KinematicBody2D" parent="CharacterPath/CharacterFollow"]
 script = ExtResource( 3 )
 centered = true
 num_sides = 8
@@ -34,3 +37,6 @@ drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
 editor_draw_drag_margin = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterPath/CharacterFollow/RegularPolygon2D"]
+shape = SubResource( 2 )

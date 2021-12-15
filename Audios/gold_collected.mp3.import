@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/gold_collected.mp3-3faf462930723433d9e62aeeb1aaa737.mp3str"
+
+[deps]
+
+source_file="res://Audios/gold_collected.mp3"
+dest_files=[ "res://.import/gold_collected.mp3-3faf462930723433d9e62aeeb1aaa737.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

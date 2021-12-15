@@ -13,3 +13,4 @@ func _ready():
 	for point in points:
 		character_path.curve.add_point(point)
 		visual_path.add_point(point)
+		visual_path.set_width(16)

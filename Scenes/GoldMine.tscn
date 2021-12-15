@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/RegularPolygon2D/RegularPolygon2D.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/GoldMine.gd" type="Script" id=2]
+[ext_resource path="res://Audios/gold_collected.mp3" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 23, 68 )
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 0.964844, 0.793211, 0.207291, 1, 1, 0, 0, 0.254902 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 1
+emission_sphere_radius = 5.0
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+gravity = Vector3( 0, 150, 0 )
+initial_velocity = 70.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 3.5
+color_ramp = SubResource( 3 )
+
+[node name="GoldMine" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="RegularPolygon2D" type="Node2D" parent="."]
+script = ExtResource( 1 )
+centered = true
+num_sides = 4
+size = 58.0
+polygon_color = Color( 1, 0.984314, 0, 1 )
+border_size = 8.0
+polygon_rotation = 45.0
+
+[node name="Area2D" type="Area2D" parent="RegularPolygon2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RegularPolygon2D/Area2D"]
+shape = SubResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+emitting = false
+amount = 40
+one_shot = true
+process_material = SubResource( 4 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[connection signal="body_entered" from="RegularPolygon2D/Area2D" to="." method="_on_Area2D_body_entered"]
