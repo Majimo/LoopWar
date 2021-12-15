@@ -14,10 +14,14 @@ config/name="LoopWar"
 run/main_scene="res://Scenes/World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GAME="*res://Autoloads/Game.gd"
+EVENTS="*res://Autoloads/Events.gd"
+
 [display]
 
-window/size/width=640
-window/size/height=360
+window/size/width=800
 window/stretch/mode="2d"
 window/stretch/aspect="keep_width"
 
