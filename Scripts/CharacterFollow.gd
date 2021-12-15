@@ -4,6 +4,9 @@ export var character_speed = 300
 
 var first_lap = true
 
+
+#### METHODS ####
+
 func _process(delta):
 	set_offset(get_offset() + character_speed * delta)
 	

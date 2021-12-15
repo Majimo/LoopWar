@@ -11,6 +11,8 @@ enum STATE {
 var state: int = STATE.IDLE
 
 
+#### METHODS ####
+
 func collect():
 	state = STATE.COLLECT
 	particles.set_emitting(true)
@@ -18,6 +20,8 @@ func collect():
 	EVENTS.emit_signal("gold_collected")
 	state = STATE.IDLE
 
+
+#### SIGNALS ####
 
 func _on_Area2D_body_entered(body):
 	if state == STATE.IDLE:
