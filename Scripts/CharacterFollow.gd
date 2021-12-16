@@ -1,6 +1,6 @@
 extends PathFollow2D
 
-export var character_speed = 100
+export var character_speed = 500
 
 onready var audio_stream = $AudioStreamPlayer2D
 

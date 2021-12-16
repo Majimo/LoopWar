@@ -23,6 +23,6 @@ func collect():
 
 #### SIGNALS ####
 
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(_body):
 	if state == STATE.IDLE:
 		collect()
