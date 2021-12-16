@@ -9,7 +9,6 @@ var path_points: Array = [
 	Vector2(750, 550), 
 	Vector2(50, 550), 
 	Vector2(50, 50)]
-var rng = RandomNumberGenerator.new()
 
 
 #### METHODS ####
@@ -40,9 +39,8 @@ func match_points(points: Array, point_idx: int, newPoint: Vector2, num: int, wa
 func randomize_path_points() -> Array:
 	var randomized_path_points: Array = []
 	
-	rng.randomize()
-	var num1 = rng.randi_range(0, 50)
-	var way = rng.randi_range(0,1)
+	var num1 = randi() % 50
+	var way = randi() % 1
 	
 	for i in range(path_points.size()):
 		var newPoint: Vector2 = path_points[i]

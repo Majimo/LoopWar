@@ -15,7 +15,6 @@ func get_actual_path_points() -> Array: return actual_path_points
 func set_nb_laps(value: int):
 	if value != nb_laps:
 		nb_laps = value
-		print(GAME.get_actual_path_points())
 		EVENTS.emit_signal("nb_laps_changed", nb_laps)
 func get_nb_laps() -> int: return nb_laps
 
@@ -29,6 +28,7 @@ func get_nb_gold() -> int: return nb_gold
 #### METHODS ####
 
 func _ready():
+	randomize()
 	EVENTS.connect("lap_finished", self, "on_EVENTS_lap_finished")
 	EVENTS.connect("gold_collected", self, "on_EVENTS_gold_collected")
 	EVENTS.connect("path_points_changed", self, "on_EVENTS_path_points_changed")
@@ -42,5 +42,5 @@ func on_EVENTS_path_points_changed(points: Array):
 func on_EVENTS_lap_finished():
 	set_nb_laps(nb_laps + 1)
 
-func on_EVENTS_gold_collected():
-	set_nb_gold(nb_gold + 10)
+func on_EVENTS_gold_collected(gold: int):
+	set_nb_gold(nb_gold + gold)
