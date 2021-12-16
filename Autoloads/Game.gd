@@ -1,5 +1,15 @@
 extends Node
 
+#### COLORS ####
+var purple = '#2b0f54'
+var dark_pink = '#ab1f65'
+var pink = '#ff4f69'
+var white = '#fff7f8'
+var orange = '#ff8142'
+var yellow = '#ffda45'
+var dark_blue = '#3368dc'
+var blue = '#49e7ec'
+
 var actual_path_points: Array = [] setget set_actual_path_points, get_actual_path_points
 var nb_laps: int = 0 setget set_nb_laps, get_nb_laps
 var nb_gold: int = 0 setget set_nb_gold, get_nb_gold

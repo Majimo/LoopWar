@@ -30,7 +30,7 @@ script = ExtResource( 3 )
 centered = true
 num_sides = 8
 size = 32.0
-polygon_color = Color( 0, 0.368627, 1, 1 )
+polygon_color = Color( 0.2, 0.407843, 0.862745, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="CharacterPath/CharacterFollow/RegularPolygon2D"]
 current = true
