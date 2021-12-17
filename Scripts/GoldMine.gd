@@ -1,15 +1,8 @@
-extends Node2D
+extends Spawner
 
 onready var audio_stream = $AudioStreamPlayer2D
 onready var gold_mine = $"."
 onready var particles = $Particles2D
-
-enum STATE {
-	INACTIVE,
-	IDLE,
-	COLLECT
-}
-var state: int = STATE.INACTIVE
 
 
 #### METHODS ####
@@ -19,12 +12,10 @@ func _ready():
 	gold_mine.set_visible(false)
 
 func _process(_delta):
-	if GAME.get_nb_laps() > 0:
-		gold_mine.set_visible(true)
-		state = STATE.IDLE
+	.idle_node(gold_mine)
 
-func collect():
-	state = STATE.COLLECT
+func activate():
+	.activate()
 	particles.set_emitting(true)
 	audio_stream.play()
 	var granularity = int(GAME.get_nb_laps() / 5.0) + 1
@@ -42,9 +33,3 @@ func on_EVENTS_path_points_changed(points: Array):
 		var min_point: int = path_points[0].x
 		delta_rng = randi() % (max_point - min_point)
 		gold_mine.set_position(Vector2(path_points[0].x + delta_rng, path_points[0].y - 32))
-
-func _on_Area2D_body_entered(_body):
-	if state == STATE.INACTIVE:
-		return
-	if state == STATE.IDLE:
-		collect()

@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Spawner",
+"language": "GDScript",
+"path": "res://Scripts/Spawners.gd"
+} ]
+_global_script_class_icons={
+"Spawner": ""
+}
+
 [application]
 
 config/name="LoopWar"
