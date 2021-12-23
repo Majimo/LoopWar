@@ -1,7 +1,5 @@
 extends PathFollow2D
 
-export var character_speed = 250
-
 onready var audio_stream = $AudioStreamPlayer2D
 
 var first_lap = true
@@ -13,6 +11,7 @@ func _ready():
 	play_walk_sound()
 
 func _process(delta):
+	var character_speed = GAME.get_player_walk_speed()
 	set_offset(get_offset() + character_speed * delta)
 	
 	# Avoid random first increment of laps

@@ -43,7 +43,6 @@ func find_direction(max_point: Vector2, min_point: Vector2):
 
 func on_EVENTS_path_points_changed(points: Array):
 	if points.size() > 1:
-		print(points)
 		var point_idx = randi() % points.size() - 1
 		if point_idx < 0:
 			point_idx = randi() % points.size() - 1

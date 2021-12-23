@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/HUD.gd" type="Script" id=1]
+[ext_resource path="res://Assets/HUD/Button_4x.png" type="Texture" id=2]
+[ext_resource path="res://Assets/HUD/Button_0x.png" type="Texture" id=3]
+[ext_resource path="res://Assets/HUD/Button_2x.png" type="Texture" id=4]
+[ext_resource path="res://Assets/HUD/Button_1x.png" type="Texture" id=5]
 
 [node name="HUD" type="Control"]
 margin_right = 40.0
@@ -59,3 +63,52 @@ text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SpeedBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 528.0
+margin_top = 4.0
+margin_right = 796.0
+margin_bottom = 37.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseButton" type="TextureButton" parent="SpeedBoxContainer"]
+margin_right = 64.0
+margin_bottom = 33.0
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Speed1Button" type="TextureButton" parent="SpeedBoxContainer"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 33.0
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Speed2Button" type="TextureButton" parent="SpeedBoxContainer"]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 33.0
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Speed4Button" type="TextureButton" parent="SpeedBoxContainer"]
+margin_left = 204.0
+margin_right = 268.0
+margin_bottom = 33.0
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="pressed" from="SpeedBoxContainer/PauseButton" to="." method="_on_PauseButton_pressed"]
+[connection signal="pressed" from="SpeedBoxContainer/Speed1Button" to="." method="_on_Speed1Button_pressed"]
+[connection signal="pressed" from="SpeedBoxContainer/Speed2Button" to="." method="_on_Speed2Button_pressed"]
+[connection signal="pressed" from="SpeedBoxContainer/Speed4Button" to="." method="_on_Speed4Button_pressed"]
